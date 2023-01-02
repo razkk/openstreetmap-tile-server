@@ -3,12 +3,17 @@ version: '3'
 services:
   map:
     image: overv/openstreetmap-tile-server
+    environment:
+      - ALLOW_CORS=enabled
+      - FLAT_NODES=enabled
+      - POSTGRES_USER=renderer
+      - POSTGRES_PASSWORD=renderer
     volumes:
       - osm-data:/data/database/
     ports:
-      - "8080:80"
+      - 8080:80
+      - 5432:5432
     command: "run"
-
+    restart: always
 volumes:
   osm-data:
-    external: true
