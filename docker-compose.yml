@@ -6,8 +6,6 @@ services:
     environment:
       - ALLOW_CORS=enabled
       - FLAT_NODES=enabled
-      - POSTGRES_USER=renderer
-      - POSTGRES_PASSWORD=renderer
     volumes:
       - osm-data:/data/database/
     ports:
